@@ -1,0 +1,30 @@
+trigger:
+  - none
+pool:
+  vmImage: ubuntu-latest
+  # name: default
+variables:
+  buildConfiguration: "Release"
+
+steps:
+  # - script: dotnet build --configuration $(buildConfiguration)
+  #   displayName: 'build'
+
+  - task: DotNetCoreCLI@2
+    displayName: build
+    inputs:
+      command: "build"
+
+  - task: DotNetCoreCLI@2
+    displayName: publish
+    inputs:
+      command: "publish"
+      publishWebProjects: true
+      arguments: "--configuration $(BuildConfiguration) --output $(build.artifactstagingdirectory)"
+      zipAfterPublish: true
+
+  - task: PublishBuildArtifacts@1
+    inputs:
+      PathtoPublish: "$(Build.ArtifactStagingDirectory)"
+      ArtifactName: "drop"
+      publishLocation: "Container"

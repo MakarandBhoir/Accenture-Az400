@@ -1,0 +1,16 @@
+trigger:
+- none
+
+variables:
+  username: makarand
+  password: complex@1234
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+
+- script: |
+    echo "User = $(username)"
+    echo "Password = $(password)"
+  displayName: 'Run a multi-line script'

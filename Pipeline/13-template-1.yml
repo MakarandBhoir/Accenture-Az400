@@ -1,0 +1,20 @@
+# File: file1.yml
+
+steps:
+- script: echo "Template"
+
+
+
+# File: test1.yml
+
+jobs:
+- job: Linux
+  pool:
+    vmImage: 'ubuntu-latest'
+  steps:
+  - template: file1.yml  # Template reference
+- job: Windows
+  pool:
+    vmImage: 'windows-latest'
+  steps:
+  - template: file1.yml  # Template reference

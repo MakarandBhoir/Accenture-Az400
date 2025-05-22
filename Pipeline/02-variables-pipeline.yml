@@ -1,0 +1,23 @@
+trigger:
+  - none
+
+variables:
+  vmImage: ubuntu-latest
+
+pool:
+  vmImage: $(vmImage)
+
+steps:
+  - script: |
+      echo 'Agent.Name = $(Agent.Name)'
+      echo 'Agent.MachineName = $(Agent.MachineName)'
+      echo 'Agent.WorkFolder = $(Agent.WorkFolder)'
+      echo 'Agent.HomeDirectory = $(Agent.HomeDirectory)'
+      echo 'Build.BuildId = $(Build.BuildId)'
+      echo 'Build.BuildNumber = $(Build.BuildNumber)'
+      echo 'Build.ArtifactStagingDirectory = $(Build.ArtifactStagingDirectory)'
+      echo 'Build.SourcesDirectory = $(Build.SourcesDirectory)'
+      echo 'Build.StagingDirectory = $(Build.StagingDirectory)'
+      echo 'Build.Reason = $(Build.Reason)'
+      echo 'Build.BinariesDirectory = $(Build.BinariesDirectory)'
+    displayName: "Predefined Variables"

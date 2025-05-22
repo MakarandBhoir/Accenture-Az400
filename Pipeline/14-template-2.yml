@@ -1,0 +1,25 @@
+# File: file2.yml
+
+parameters:
+- name: name  # defaults for any parameters that aren't specified
+  default: ''
+- name: vmImage
+  default: ''
+
+jobs:
+- job: ${{ parameters.name }}
+  pool: 
+    vmImage: ${{ parameters.vmImage }}
+  steps:
+  - script: echo "Hello $(parameters.name) vm"
+
+
+
+# File: test2.yml
+
+jobs:
+
+- template: file2.yml  # Template reference
+  parameters:
+    name: Windows
+    vmImage: 'windows-latest'

@@ -1,0 +1,14 @@
+stages:
+  - stage:
+    displayName: Build
+    jobs:
+      - job: A
+        pool:
+          vmImage: windows-latest
+        steps:
+          - bash: echo 'Job A'
+      - job: B
+        pool:
+          vmImage: ubuntu-latest
+        steps:
+          - bash: echo 'Job B'

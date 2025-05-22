@@ -1,0 +1,25 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- none
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+- task: AzureKeyVault@2
+  inputs:
+    azureSubscription: 'Azure DevOps To Portal Connection'
+    KeyVaultName: 'avanade-secret-2'
+    SecretsFilter: '*'
+    RunAsPreJob: false
+- task: AzureCLI@2
+  inputs:
+    azureSubscription: 'Azure DevOps To Portal Connection'
+    scriptType: 'bash'
+    scriptLocation: 'inlineScript'
+    inlineScript: 'az vm create -n vm-test -g DoNotDeleteRG -l eastus --image Ubuntu2204 --admin-username $(username) --admin-password $(password)'
+
