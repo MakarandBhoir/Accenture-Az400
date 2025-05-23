@@ -1,0 +1,18 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "appServicePlanName": {
+            "value": "myAppServicePlan091624"
+        },
+        "location": {
+            "value": "East US"
+        },
+        "sku": {
+            "value": "F1"
+        },
+        "capacity": {
+            "value": 1
+        }
+    }
+}

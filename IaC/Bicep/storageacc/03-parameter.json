@@ -1,0 +1,20 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "storageAccountName": {
+            "value": "myacc1130181124c"
+        },
+        "storageAccountLocation": {
+            "value": "East US"
+        },
+        "storageAccountKind": {
+            "value": "StorageV2"
+        },
+        "sku": {
+            "value": {
+                "name": "Standard_LRS"
+            }
+        }
+    }
+}

@@ -1,0 +1,9 @@
+az deployment group create --resource-group TrainingRG --template-file linux-vm-template.json  --parameters linux-vm-parameters.json
+
+
+az deployment group create --resource-group testgroup --template-file demotemplate.json --parameters exampleString='inline
+
+New-AzResourceGroupDeployment `
+  -ResourceGroupName TrainingRG `
+  -TemplateFile linux-vm-template.json `
+  -TemplateParameterFile linux-vm-parameters.json
